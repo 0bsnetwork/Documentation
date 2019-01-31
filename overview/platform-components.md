@@ -6,7 +6,7 @@ description: 'These are the main components of the 0bsnetwork:'
 
 ## Node
 
-0bsnetwork is a peer-to-peer, truly decentralized blockchain network running [NG-DPoS consensus algorithm](). That means that the processing of data and transactions is not done in a central location or one \(set of\) server\(s\). Instead, processing of data and transactions is done by a network of equal peers, each of which does exactly the same job and has the same "rights" on the network. We as the founders of the platform have equal power over the network as any other \(independent\) operator of a node. 
+0bsnetwork is a peer-to-peer, truly decentralized blockchain network running NG-DPoS consensus algorithm. That means that the processing of data and transactions is not done in a central location or one \(set of\) server\(s\). Instead, processing of data and transactions is done by a network of equal peers, each of which does exactly the same job and has the same "rights" on the network. We as the founders of the platform have equal power over the network as any other \(independent\) operator of a node. 
 
 Nodes on the 0bsnetwork serve four critical roles:
 
