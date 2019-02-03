@@ -30,14 +30,14 @@ For example, seed string `manage manual recall harvest series desert melt police
 
 A seed string is involved with the creation of private keys. To create private key using the official web wallet or the node, to 4 bytes of int 'nonce' field \(big-endian representation\), which initially has a value of 0 and increases every time you create the new address, should be prepended to seed bytes. Then we use this array of bytes for calculate hash `keccak256(blake2b256(bytes))`. This resulting array of bytes we call `account seed`, from it you can definitely generate one private and public key pair. Then this bytes hash passed in the method of creating a pair of public and private key of `Curve25519` algorithm.
 
-Waves uses `Curve25519`-`ED25519` signature with X25519 keys \(Montgomery form\), but most of embedded cryptography devices and libraries don't support X25519 keys.
+0bsnetwork uses `Curve25519`-`ED25519` signature with X25519 keys \(Montgomery form\), but most of embedded cryptography devices and libraries don't support X25519 keys.
 
 There're [libraries with conversion functions](https://download.libsodium.org/doc/advanced/ed25519-curve25519) from:
 
 * ED25519 keys to X25519 \(Curve25519\) crypto\_sign\_ed25519\_pk\_to\_curve25519\(curve25519\_pk, ed25519\_pk\) for **public key.**
 * Crypto\_sign\_ed25519\_sk\_to\_curve25519\(curve25519\_sk, ed25519\_skpk\) for **private key**.
 
-For example, I use the ED25519 keys and the signature inside the Ledger application, then it need to convert the keys from the device to X25519 format using that function on the client side**and create the waves address from X25519 public key**. [There're an example of convertion libsodium ED25519 keys and signature to Curve25519](https://gist.github.com/Tolsi/d64fcb09db4ead75e5eeeab445284c93).
+For example, I use the ED25519 keys and the signature inside the Ledger application, then it need to convert the keys from the device to X25519 format using that function on the client side**and create the 0bsnetwork address from X25519 public key**. [There're an example of convertion libsodium ED25519 keys and signature to Curve25519](https://gist.github.com/Tolsi/d64fcb09db4ead75e5eeeab445284c93).
 
 **NOTE: **Not all random 32 bytes can be used as private keys \(but any bytes of any size can be a seed\). The signature scheme for the ED25519 introduces restrictions on the keys, so create the keys only through the methods of the Curve25519 libraries and be sure to make a test of the ability to sign data with a private key and then check it with a public key, however obvious this test might seem**.**
 
@@ -46,7 +46,7 @@ There are valid Curve25519 realizations for different languages:
 * [Java](https://github.com/signalapp/curve25519-java/)
 * [C](https://github.com/signalapp/curve25519-java/tree/master/android/jni)
 * [Python](https://github.com/tgalal/python-axolotl-curve25519)
-* [JS](https://github.com/wavesplatform/curve25519-js)
+* [JS](https://github.com/0bsnetwork/curve25519-js)
 
 Also some `Curve25519` libraries \(as the one used in our project\) have the `Sha256` hashing integrated, some not \(such as most of c/c++/python libraries\), so you may need to apply it manually. Note that private key is clamped, so not any random 32 bytes can be a valid private key.
 
@@ -151,9 +151,9 @@ Bytes:
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Transaction type \(0x04\) | Byte | 0 | 1 | 4 | 5 |
 | 2 | Sender's public key | Bytes | 1 | 32 | ... | EENPV1mRhUD9gSKbcWt84cqnfSGQP5LkCu5gMBfAanYH |
-| 3 | Amount's asset flag \(0-Waves, 1-Asset\) | Byte | 33 | 1 | 1 | 2 |
+| 3 | Amount's asset flag \(0-ZBS, 1-Asset\) | Byte | 33 | 1 | 1 | 2 |
 | 4 | Amount's asset ID \(\*if used\) | Bytes | 34 | 0 \(32\*\) | ... | BG39cCNUFWPQYeyLnu7tjKHaiUGRxYwJjvntt9gdDPxG |
-| 5 | Fee's asset flag \(0-Waves, 1-Asset\) | Byte | 34 \(66\*\) | 1 | 1 | 2 |
+| 5 | Fee's asset flag \(0-ZBS, 1-Asset\) | Byte | 34 \(66\*\) | 1 | 1 | 2 |
 | 6 | Fee's asset ID \(\*\*if used\) | Bytes | 35 \(67\*\) | 0 \(32\*\*\) | ... | BG39cCNUFWPQYeyLnu7tjKHaiUGRxYwJjvntt9gdDPxG |
 | 7 | Timestamp | Long | 35 \(67_\) \(99\*_\) | 8 | 1479287120875 | 11frnYASv |
 | 8 | Amount | Long | 43 \(75_\) \(107\*_\) | 8 | 1 | 11111112 |
@@ -177,4 +177,3 @@ _**Total transaction bytes with signature:**_
 # Calculating Transaction Id
 
 Transaction Id is not stored in the transaction bytes and for most of transactions \(except Payment\) it can be easily calculated from the special bytes for signing using`blake2b256(bytes_for_signing)`. For Payment transaction Id is just the signature of this transaction.
-
