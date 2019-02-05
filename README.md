@@ -1,18 +1,24 @@
-# Welcome to 0bsnetwork Documentation
+---
+description: >-
+  0bsnetwork Documentation will provide guides and in depth explanation of
+  platform, its features, how to use it and how to develop applications for
+  using 0bsnetwork public blockchain platform
+---
 
-**0bsnetwork** is a blockchain platform designed for **business applications** of the technology, **ease of use** and **mass adoption**. Our motto is **Blockchain For The Real World**. That reflects our firm focus on serving the needs of enterprises, SMEs and startups with real world use cases for tokens and data management in a decentralised and reliable way. 0bsnetwork is a public platform, but can easily be integrated with private blockchain networks for B2B settings, as well as existing ERP systems.
+# 0bsnetwork Documentation
 
-Main features of the 0bsnetwork blockchain platform are:
+Structure of documentation is as follows:
 
-* Instantaneous, Real-time Transactions. 
-* Easy and affordable Token Creation. 
-* Mass Transactions. 
-* Data Transactions. 
-* Smart Accounts.
-* Smart Assets.
-* Decentralized Exchange. 
-* Cryptocurrency Gateways. 
-* Fiat Gateways. 
+1. [What is 0bsnetwork?](what-is-0bsnetwork.md) 
+2. [0bsnetwork Platform Features](running-a-node.md)
+3. [0bsnetwork Components](0bsnetwork-components.md)
+4. [0bsnetwork Development Resources](0bsnetwork-development-resources/)
+
+
+
+
+
+
 
 
 
