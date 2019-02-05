@@ -8,4 +8,7 @@
   * [Testnet](0bsnetwork-development-resources/testnet.md)
   * [Libraries](0bsnetwork-development-resources/libraries.md)
   * [0bsnetwork Developer Chat](0bsnetwork-development-resources/0bsnetwork-developer-chat.md)
+* [0bsnetwork User Guides](0bsnetwork-user-guides/README.md)
+  * [Creating your wallet](0bsnetwork-user-guides/creating-your-wallet.md)
+  * [Node instalation](0bsnetwork-user-guides/node-instalation.md)
 
