@@ -11,4 +11,10 @@
 * [0bsnetwork User Guides](0bsnetwork-user-guides/README.md)
   * [Creating your wallet](0bsnetwork-user-guides/creating-your-wallet.md)
   * [Node instalation](0bsnetwork-user-guides/node-instalation.md)
+* [Technical Details](technical-details/README.md)
+  * [Cryptographic Practical Details](technical-details/cryptographic-practical-details.md)
+  * [Data Structures](technical-details/data-structures.md)
+  * [Data Transactions](technical-details/data-transaction.md)
+  * [Mass Transfer](technical-details/mass-transfer-transaction.md)
+  * [Smart Asset](technical-details/smart-asset.md)
 
