@@ -16,5 +16,5 @@
   * [Data Structures](technical-details/data-structures.md)
   * [Data Transactions](technical-details/data-transaction.md)
   * [Mass Transfer](technical-details/mass-transfer-transaction.md)
-  * [Smart Asset](technical-details/smart-asset.md)
+  * [Smart Assets](technical-details/smart-assets.md)
 
