@@ -1,6 +1,6 @@
 # Creating your wallet
 
-Account creation
+## Account creation
 
 You can use online version of the client for now, standalone version for Mac, PC or Linux are coming soon!Online version of the client can be found here - [Online client](https://client.testnet-0bsnetwork.com/) **Pay attention!**Please take some time to understand some important things for your own safety. We cannot recover your funds or freeze your account if you visit a phishing site or lose your backup phrase \(aka **SEED** phrase\). By continuing to use our platform, you agree to accept all risks associated with the loss of your **SEED**, including but not limited to the inability to obtain your funds and dispose of them. In case you lose your **SEED**, you agree and acknowledge that the 0bsnetwork Platform would not be responsible for the negative consequences of this. Once you've read and understood the above, click on **Get Started** to proceed with your account creation!  ![](blob:https://teams.microsoft.com/16359973-88c0-4b04-9703-c0659af27910) 
 
