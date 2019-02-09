@@ -16,11 +16,3 @@ Structure of documentation is as follows:
 5. [0bsnetwork User Guides](0bsnetwork-user-guides/)
 6. [Technical Details](technical-details/)
 
-
-
-
-
-
-
-
-

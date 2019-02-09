@@ -1,10 +1,10 @@
-# Mass Transfer Transaction
+# Mass Transfer
 
-### Problem
+## Problem
 
 People who perform mass payments, such as token airdrops, salary or festival tickets distributions, currently produce lots of similar Transfer transactions. So do high frequency IoT sensors. This incurs some extra cost to both the sender \(in terms of fees paid\), and the blockchain \(in terms of storage spent on duplicate data, as well as processing power spent on verifying signatures for each transaction\).
 
-### One Sender, Many Recipients
+## One Sender, Many Recipients
 
 To address this issue, we have a new transaction type, Mass Transaction. A Mass Transaction combines several ordinary Transfer transactions that share single sender and asset ID. Under the hood it has a list of recipients, and an amount to be transferred to each recipient.
 
@@ -36,13 +36,13 @@ The new transaction has a type value of 11. Below is a sample Mass Transfer tran
 
 It's easy to see how compact this transaction is compared to several Transfer transactions. Here we have a sequence of recipients and associated amounts, while sender, asset ID, fee, timestamp and signature occur just once.
 
-### Constraints
+## Constraints
 
 The maximum number of recipients in a single transaction is 100. There is no minimum recipient number. You can create a transaction with one or even zero recipients. In addition, restrictions that apply to Transfers apply here as well, such as you cannot send negative amount and cannot send more than you have on your account.
 
 Other than that, we've decided not to put any restrictions on transactions that are harmless, even if they may seem against common sense. For example, transfers to self are allowed, as well as zero valued transfers. In the recipients list, a recipient can occur several times, this is not considered an error.
 
-### Proofs
+## Proofs
 
 In order to be compatible with the Smart Accounts feature, Mass Transfer transaction has the signature field replaced with an array of so called "proofs". Proofs are an alternative way to authorize the transaction that is more flexible than signatures and enables smart contracts such as multi-signature and atomic swap. Each proof is a Base58 encoded byte string and can be a signature, a secret, or anything else – the semantics of a proof is dictated by the smart contract that interprets it. There can be up to 8 proofs at most 64 bytes each.
 
@@ -54,15 +54,15 @@ your JSON should include
 
 `"proofs": [ "21jgWvYq6XZuke2bLE8bQEbdXJEk..." ]`
 
-### Fees
+## Fees
 
 Unlike other transactions, Mass Transfer fee is made up of two amounts: a fixed one plus a per-recipient one. By default the formula looks like:
 
-```
+```text
 5_000_000 + 2_50_000 * N
 ```
 
-where `N` is the number of recipients in transaction. The total is rounded up to the nearest 5_000_000. Fee can be configured in miner node settings using the usual syntax, just keep in mind that there are two parts to it. Below is an excerpt from the configuration file that ships with the node:
+where `N` is the number of recipients in transaction. The total is rounded up to the nearest 5\_000\_000. Fee can be configured in miner node settings using the usual syntax, just keep in mind that there are two parts to it. Below is an excerpt from the configuration file that ships with the node:
 
 ```cpp
 transfer {
@@ -77,8 +77,9 @@ mass-transfer {
 
 Mass Transfer transaction accepts fees in ZBS only.
 
-### REST API
+## REST API
 
 There is just a single REST endpoint, `/assets/masstransfer`, to sign and send a mass transfer transaction. Like its counterparts, it requires authentication using `X-Api-Key` header.
 
 Just as with other transaction types, `/transactions/sign` can be used to create and sign a Mass Transfer transaction without broadcasting it. Use `/transactions/broadcast` to broadcast a signed transaction.
+

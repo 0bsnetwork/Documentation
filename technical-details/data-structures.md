@@ -1,11 +1,13 @@
-# Binary Data Structures
+# Data Structures
 
-## Blockchain objects
+## Binary Data Structures
 
-### Address
+### Blockchain objects
+
+#### Address
 
 | \# | Field name | Type | Length |
-| --- | :---: | :---: | --- |
+| :--- | :---: | :---: | :--- |
 | 1 | Version\(0x01\) | Byte | 1 |
 | 2 | Address scheme \(0x54 for Testnet and 0x57for Mainnet\) | Byte | 1 |
 | 3 | Public key hash | Bytes | 20 |
@@ -13,10 +15,10 @@
 
 Public key hash is first 20 bytes of\_SecureHash\_of public key bytes. Checksum is first 4 bytes of\_SecureHash\_of version, scheme and hash bytes. SecureHash is hash function Keccak256\(Blake2b256\(data\)\).
 
-### Alias
+#### Alias
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Version \(0x02\) | Byte | 1 |
 | 2 | Address scheme \(0x54 for Testnet and 0x57 for Mainnet\) | Byte | 1 |
 | 3 | Alias bytes length \(N\) | Int | 2 |
@@ -28,21 +30,21 @@ Alias is a UTF-8 string with the following constraints:
 * It can contain characters only from the following alphabet: `-.0123456789@_abcdefghijklmnopqrstuvwxyz` 
 * It cannot contain '\n' or any leading/trailing whitespaces
 
-### Proof
+#### Proof
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Proof size \(N\) | Short | 2 |
 | 2 | Proof | Bytes | N |
 
-### AddressOrAlias
+#### AddressOrAlias
 
 A recipient that can be encoded either as pure address or alias. Both `Address` and `Alias` are `AddressOrAlias`.
 
-### Block
+#### Block
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Version \(0x02 for Genesis block, 0x03 for common block\) | Byte | 0 |
 | 2 | Timestamp | Long | 1 |
 | 3 | Parent block signature | Bytes | 64 |
@@ -59,14 +61,14 @@ A recipient that can be encoded either as pure address or alias. Both `Address` 
 Generation signature is calculated as Blake2b256 hash of the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Previous block's generation signature | Bytes | 32 |
 | 2 | Generator's public key | Bytes | 32 |
 
 Block's signature is calculated from the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Version \(0x02 for Genesis block,, 0x03 for common block\) | Byte | 1 |
 | 2 | Timestamp | Long | 8 |
 | 3 | Parent block signature | Bytes | 64 |
@@ -79,10 +81,10 @@ Block's signature is calculated from the following bytes:
 | 8 + \(K - 1\) | Transaction \#K bytes | Bytes | MK |
 | 9 + \(K - 1\) | Generator's public key | Bytes | 32 |
 
-### Order
+#### Order
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Sender's public key | Bytes | 32 |
 | 2 | Matcher's public key | Bytes | 32 |
 | 3 | Amount's asset flag \(0-ZBS, 1-Asset\) | Byte | 1 |
@@ -104,7 +106,7 @@ Expiration is order time to live, timestamp in future, max = 30 days in future.
 The signature is calculated from the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Sender's public key | Bytes | 32 |
 | 2 | Matcher's public key | Bytes | 32 |
 | 3 | Amount's asset flag \(0-ZBS, 1-Asset\) | Byte | 1 |
@@ -118,12 +120,12 @@ The signature is calculated from the following bytes:
 | 11 | Expiration | Long | 8 |
 | 12 | Matcher fee | Long | 8 |
 
-### Transactions
+#### Transactions
 
 Transaction types:
 
 | № | Transaction type |
-| --- | --- |
+| :--- | :--- |
 | 1 | GenesisTransaction |
 | 2 | PaymentTransaction\* |
 | 3 | IssueTransaction |
@@ -141,19 +143,19 @@ Transaction types:
 
 \* - Deprecated
 
-#### Genesis transaction
+**Genesis transaction**
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(1\) | Byte | 1 |
 | 2 | Timestamp | Long | 8 |
 | 3 | Recipient's address | Bytes | 26 |
 | 4 | Amount | Long | 8 |
 
-#### Issue transaction
+**Issue transaction**
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x03\) | Byte | 1 |
 | 2 | Signature | Bytes | 64 |
 | 3 | Transaction type \(2\) | Byte | 1 |
@@ -171,7 +173,7 @@ Transaction types:
 The transaction's signature is calculated from the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x03\) | Byte | 1 |
 | 2 | Sender's public key | Bytes | 32 |
 | 3 | Name's length \(N\) | Short | 2 |
@@ -184,10 +186,10 @@ The transaction's signature is calculated from the following bytes:
 | 10 | Fee | Long | 8 |
 | 11 | Timestamp | Long | 8 |
 
-#### Reissue transaction
+**Reissue transaction**
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x05\) | Byte | 1 |
 | 2 | Signature | Bytes | 64 |
 | 3 | Transaction type \(0x05\) | Byte | 1 |
@@ -201,7 +203,7 @@ The transaction's signature is calculated from the following bytes:
 The transaction's signature is calculated from the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x05\) | Byte | 1 |
 | 2 | Sender's public key | Bytes | 32 |
 | 3 | Asset ID | Bytes | 32 |
@@ -210,10 +212,10 @@ The transaction's signature is calculated from the following bytes:
 | 6 | Fee | Long | 8 |
 | 7 | Timestamp | Long | 8 |
 
-#### Transfer transaction
+**Transfer transaction**
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x04\) | Byte | 1 |
 | 2 | Signature | Bytes | 64 |
 | 3 | Transaction type \(0x04\) | Byte | 1 |
@@ -232,7 +234,7 @@ The transaction's signature is calculated from the following bytes:
 The transaction's signature is calculated from the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x04\) | Byte | 1 |
 | 2 | Sender's public key | Bytes | 32 |
 | 3 | Amount's asset flag \(0-ZBS, 1-Asset\) | Byte | 1 |
@@ -246,10 +248,10 @@ The transaction's signature is calculated from the following bytes:
 | 11 | Attachment's length \(N\) | Short | 2 |
 | 12 | Attachment's bytes | Bytes | N |
 
-#### Versioned transfer transaction
+**Versioned transfer transaction**
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Reserved \(Always 0\) | Byte | 1 |
 | 2 | Transaction type | Byte | 1 |
 | 3 | Version | Byte | 1 |
@@ -269,10 +271,10 @@ The transaction's signature is calculated from the following bytes:
 * The fee only in ZBS;
 * You may sign your transaction in your way and place the signature in proofs.
 
-#### Burn transaction
+**Burn transaction**
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | ChainId | Byte | 1 |
 | 2 | Sender's public key | Bytes | 32 |
 | 3 | Asset ID | Bytes | 32 |
@@ -284,7 +286,7 @@ The transaction's signature is calculated from the following bytes:
 The transaction's signature is calculated from the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | ChainId | Byte | 1 |
 | 2 | Sender's public key | Bytes | 32 |
 | 3 | Asset ID | Bytes | 32 |
@@ -292,10 +294,10 @@ The transaction's signature is calculated from the following bytes:
 | 5 | Fee | Long | 8 |
 | 6 | Timestamp | Long | 8 |
 
-#### Exchange transaction
+**Exchange transaction**
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x07\) | Byte | 1 |
 | 2 | Buy order object length \(BN\) | Bytes | 4 |
 | 3 | Sell order object length \(SN\) | Bytes | 4 |
@@ -312,7 +314,7 @@ The transaction's signature is calculated from the following bytes:
 The transaction's signature is calculated from the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x07\) | Byte | 1 |
 | 2 | Buy order object length \(BN\) | Bytes | 4 |
 | 3 | Sell order object length \(SN\) | Bytes | 4 |
@@ -325,10 +327,10 @@ The transaction's signature is calculated from the following bytes:
 | 10 | Fee | Long | 8 |
 | 11 | Timestamp | Long | 8 |
 
-#### Lease transaction
+**Lease transaction**
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x08\) | Byte | 1 |
 | 2 | Sender's public key | Bytes | 32 |
 | 3 | Recipient's AddressOrAlias object bytes | Bytes | N |
@@ -340,7 +342,7 @@ The transaction's signature is calculated from the following bytes:
 The transaction's signature is calculated from the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x08\) | Byte | 1 |
 | 2 | Sender's public key | Bytes | 32 |
 | 3 | Recipient's AddressOrAlias object bytes | Bytes | N |
@@ -348,10 +350,10 @@ The transaction's signature is calculated from the following bytes:
 | 5 | Fee | Long | 8 |
 | 6 | Timestamp | Long | 8 |
 
-#### Lease Cancel Transactions
+**Lease Cancel Transactions**
 
 | \# | Field | Length | Type |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Version\(0x01\) | 1 | Byte |
 | 2 | chainByte | 1 | Bytes |
 | 3 | LeaseId | 1 | ByteStr |
@@ -359,10 +361,10 @@ The transaction's signature is calculated from the following bytes:
 | 5 | Sender's public key | 32 | Bytes |
 | 6 | TineStamp | 8 | Long |
 
-#### Create alias transaction
+**Create alias transaction**
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x0a\) | Byte | 1 |
 | 2 | Sender's public key | Bytes | 32 |
 | 3 | Alias object length \(N\) | Short | 2 |
@@ -374,7 +376,7 @@ The transaction's signature is calculated from the following bytes:
 The transaction's signature is calculated from the following bytes:
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Transaction type \(0x0a\) | Byte | 1 |
 | 2 | Sender's public key | Bytes | 32 |
 | 3 | Alias object length \(N\) | Short | 2 |
@@ -382,10 +384,10 @@ The transaction's signature is calculated from the following bytes:
 | 5 | Fee | Long | 8 |
 | 6 | Timestamp | Long | 8 |
 
-#### Mass Transfer transaction
+**Mass Transfer transaction**
 
 | \# | Field name | Length |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | 1 | Transaction type \(0x0b\) | 1 |
 | 2 | Version \(0x01\) | 1 |
 | 3 | Sender's public key | 32 |
@@ -409,7 +411,7 @@ The transaction's signature is calculated from the following bytes:
 
 The transaction signature is calculated from the fields 1 to N+3, i.e. proofs and signatures are not included.
 
-**Note.** [**Here**](/technical-details/mass-transfer-transaction.md) you can find more details about Mass Transfer Transaction.
+**Note.** [**Here**](mass-transfer-transaction.md) you can find more details about Mass Transfer Transaction.
 
 Below is a sample **Mass Transfer transaction** encoded as **JSON**:
 
@@ -437,12 +439,12 @@ Below is a sample **Mass Transfer transaction** encoded as **JSON**:
 }
 ```
 
-### \#
+#### \
 
-#### Data transaction
+**Data transaction**
 
 | \# | Field name | Length |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | 1 | Reserved \(Always 0\) | 1 |
 | 2 | Transaction type \(0x0c\) | 1 |
 | 3 | Version \(0x01\) | 1 |
@@ -462,7 +464,7 @@ Below is a sample **Mass Transfer transaction** encoded as **JSON**:
 
 The transaction signature is calculated from the fields 1 to N+1, i.e. proofs and signatures are not included.
 
-**Note.** [**Here**](/en/technical-details/data-transaction.md) you can find more details about Data Transaction.
+**Note.** [**Here**](https://github.com/0bsnetwork/Documentation/tree/c458f96e9646ca8dd26174e12d95239396ec94eb/en/technical-details/data-transaction.md) you can find more details about Data Transaction.
 
 Below is a sample **Data transaction** encoded as **JSON**:
 
@@ -493,12 +495,12 @@ Below is a sample **Data transaction** encoded as **JSON**:
 }
 ```
 
-#### Sponsored Fee Transaction
+**Sponsored Fee Transaction**
 
-Set and cancel [fee sponsorship](sponsored-fee.md) for asset.
+Set and cancel [fee sponsorship](https://github.com/0bsnetwork/Documentation/tree/c458f96e9646ca8dd26174e12d95239396ec94eb/technical-details/sponsored-fee.md) for asset.
 
 | \# | Field name | Type | Length |
-| --- | ---: | --- | --- |
+| :--- | ---: | :--- | :--- |
 | 1 | Transaction type \(0x0e\) | Byte | 1 |
 | 2 | Version \(0x01\) | Byte | 1 |
 | 3 | Sender's public key | Bytes | 32 |
@@ -512,7 +514,7 @@ Set and cancel [fee sponsorship](sponsored-fee.md) for asset.
 
 \*\* Currently only signature is supported, signature have Length = 64
 
-**Note.** [**Here**](/technical-details/sponsored-fee.md) you can find more details about Sponsored Transaction.
+**Note.** [**Here**](https://github.com/0bsnetwork/Documentation/tree/c458f96e9646ca8dd26174e12d95239396ec94eb/technical-details/sponsored-fee.md) you can find more details about Sponsored Transaction.
 
 Below is a sample **Sponsored transaction** encoded as **JSON**:
 
@@ -531,12 +533,12 @@ Below is a sample **Sponsored transaction** encoded as **JSON**:
 }
 ```
 
-#### Set Script Transaction
+**Set Script Transaction**
 
 Sets the script which verifies all outgoing transactions. The set script can be changed by another.
 
 | \# | Field name | Type | Length |
-| --- | ---: | --- | --- |
+| :--- | ---: | :--- | :--- |
 | 1 | Transaction type \(0x0d\) | Byte | 1 |
 | 2 | Version \(0x01\) | Byte | 1 |
 | 3 | ChainId | Byte | 1 |
@@ -548,13 +550,13 @@ Sets the script which verifies all outgoing transactions. The set script can be 
 | 9 | Timestamp | Long | 8 |
 | 10 | proofs | Bytes | 64 |
 
-[**Here**](/technical-details/0bsnetwork-contracts-language-description.md) you can find more details about 0bsnetwork smart-contracts.
+[**Here**](https://github.com/0bsnetwork/Documentation/tree/c458f96e9646ca8dd26174e12d95239396ec94eb/technical-details/0bsnetwork-contracts-language-description.md) you can find more details about 0bsnetwork smart-contracts.
 
-[**Here**](/technical-details/0bsnetwork-contracts-language-description/standard-library.md) you can find more details about smart-contracts standard library.
+[**Here**](https://github.com/0bsnetwork/Documentation/tree/c458f96e9646ca8dd26174e12d95239396ec94eb/technical-details/0bsnetwork-contracts-language-description/standard-library.md) you can find more details about smart-contracts standard library.
 
-[**Here**](/technical-details/0bsnetwork-contracts-language-description/creating-and-deploying-a-script-manually.md) you can find detailed instruction how to create and deploy a script manually.
+[**Here**](https://github.com/0bsnetwork/Documentation/tree/c458f96e9646ca8dd26174e12d95239396ec94eb/technical-details/0bsnetwork-contracts-language-description/creating-and-deploying-a-script-manually.md) you can find detailed instruction how to create and deploy a script manually.
 
-# Set Asset Script Transaction
+## Set Asset Script Transaction
 
 | Field | Type | Length |
 | :--- | :--- | :--- |
@@ -587,14 +589,14 @@ Below is a sample **Set Asset Script** encoded as **JSON**:
 }
 ```
 
-## Network messages
+### Network messages
 
-### Network message structure
+#### Network message structure
 
 All network messages shares the same structure except the Handshake.
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Packet length \(BigEndian\) | Int | 4 |
 | 2 | Magic Bytes | Bytes | 4 |
 | 3 | Content ID | Byte | 1 |
@@ -604,12 +606,12 @@ All network messages shares the same structure except the Handshake.
 
 Magic Bytes are 0x12, 0x34, 0x56, 0x78. Payload checksum is first 4 bytes of\_FastHash\_of Payload bytes. FastHash is hash function Blake2b256\(data\).
 
-### Handshake message
+#### Handshake message
 
 Handshake is used to start communication between two nodes.
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Application name length \(N\) | Byte | 1 |
 | 2 | Application name \(UTF-8 encoded bytes\) | Bytes | N |
 | 3 | Application version major | Int | 4 |
@@ -622,24 +624,24 @@ Handshake is used to start communication between two nodes.
 | 10 | Declared address bytes \(if length is not 0\) | Bytes | K |
 | 11 | Timestamp | Long | 8 |
 
-### GetPeers message
+#### GetPeers message
 
 GetPeers message is sent when sending node wants to know of other nodes on network.
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Packet length \(BigEndian\) | Int | 4 |
 | 2 | Magic Bytes | Bytes | 4 |
 | 3 | Content ID \(0x01\) | Byte | 1 |
 | 4 | Payload length | Int | 4 |
 | 5 | Payload checksum | Bytes | 4 |
 
-### Peers message
+#### Peers message
 
 Peers message is a reply on GetPeers message.
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Packet length \(BigEndian\) | Int | 4 |
 | 2 | Magic Bytes | Bytes | 4 |
 | 3 | Content ID \(0x02\) | Byte | 1 |
@@ -652,10 +654,10 @@ Peers message is a reply on GetPeers message.
 | 6 + 2 \* N - 1 | Peer \#N IP address | Bytes | 4 |
 | 6 + 2 \* N | Peer \#N port | Int | 4 |
 
-### GetSignatures message
+#### GetSignatures message
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Packet length \(BigEndian\) | Int | 4 |
 | 2 | Magic Bytes | Bytes | 4 |
 | 3 | Content ID \(0x14\) | Byte | 1 |
@@ -666,10 +668,10 @@ Peers message is a reply on GetPeers message.
 | ... | ... | ... | ... |
 | 6 + N | Block \#N ID | Bytes | 64 |
 
-### Signatures message
+#### Signatures message
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Packet length \(BigEndian\) | Int | 4 |
 | 2 | Magic Bytes | Bytes | 4 |
 | 3 | Content ID \(0x15\) | Byte | 1 |
@@ -680,10 +682,10 @@ Peers message is a reply on GetPeers message.
 | ... | ... | ... | ... |
 | 6 + N | Block \#N signature | Bytes | 64 |
 
-### GetBlock message
+#### GetBlock message
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Packet length \(BigEndian\) | Int | 4 |
 | 2 | Magic Bytes | Bytes | 4 |
 | 3 | Content ID \(0x16\) | Byte | 1 |
@@ -691,10 +693,10 @@ Peers message is a reply on GetPeers message.
 | 5 | Payload checksum | Bytes | 4 |
 | 6 | Block ID | Bytes | 64 |
 
-### Block message
+#### Block message
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Packet length \(BigEndian\) | Int | 4 |
 | 2 | Magic Bytes | Bytes | 4 |
 | 3 | Content ID \(0x17\) | Byte | 1 |
@@ -702,10 +704,10 @@ Peers message is a reply on GetPeers message.
 | 5 | Payload checksum | Bytes | 4 |
 | 6 | Block bytes \(N\) | Bytes | N |
 
-### Score message
+#### Score message
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Packet length \(BigEndian\) | Int | 4 |
 | 2 | Magic Bytes | Bytes | 4 |
 | 3 | Content ID \(0x18\) | Byte | 1 |
@@ -713,7 +715,7 @@ Peers message is a reply on GetPeers message.
 | 5 | Payload checksum | Bytes | 4 |
 | 6 | Score \(N bytes\) | BigInt | N |
 
-### Transaction message
+#### Transaction message
 
 | \# | Field name | Type | Length |
 | :--- | :--- | :--- | :--- |
@@ -724,10 +726,10 @@ Peers message is a reply on GetPeers message.
 | 5 | Payload checksum | Bytes | 4 |
 | 6 | Transaction \(N bytes\) | Bytes | N |
 
-### Checkpoint message
+#### Checkpoint message
 
 | \# | Field name | Type | Length |
-| --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | 1 | Packet length \(BigEndian\) | Int | 4 |
 | 2 | Magic Bytes | Bytes | 4 |
 | 3 | Content ID \(0x64\) | Byte | 1 |
@@ -739,6 +741,4 @@ Peers message is a reply on GetPeers message.
 | ... | ... | ... | ... |
 | 6 + 2 \* N - 1 | Checkpoint \#N height | Long | 8 |
 | 6 + 2 \* N | Checkpoint \#N signature | Bytes | 64 |
-
-
 
