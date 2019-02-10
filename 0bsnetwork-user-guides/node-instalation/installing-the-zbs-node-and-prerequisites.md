@@ -71,7 +71,7 @@ You should get something like this:
 
 If it looks like this, it means your node is up, running and downloading latest blocks! Now there are few more steps before we end the setup. 
 
-15. Open up your browser and type this into your search bar: **localhost:7431**  
+15. Open up your web browser and type this into your search bar: **node1.testnet-0bsnetwork.com**  
 
 ![](../../.gitbook/assets/swagger-1.png)
 
@@ -80,7 +80,7 @@ If it looks like this, it means your node is up, running and downloading latest 
 
 16. Now click on ‘utils’, then on ‘/utils/hash/secure’ 
 
-In the white box, type NewApiKey and press ‘Try it out’ on the bottom to get your secure API hash.  
+In the white box, type a new API key for your node. Be careful, this is similar to a password and should be unique and confidential! For this example, we're going to enter API key "NewApiKey". Press ‘Try it out’ on the bottom to get your secure API hash.  
 
 ![](../../.gitbook/assets/swagger-2.png)
 
