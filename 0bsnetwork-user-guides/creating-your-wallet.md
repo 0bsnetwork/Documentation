@@ -15,6 +15,7 @@ Choose your address avatar, once you've done that, choose **Continue**. ![](blob
 ![](../.gitbook/assets/wallet-2.PNG)
 
  Now it's time to choose your account name and a secure password. Repeat your secured password and choose **Continue**.  
+ Please note, this username and password is valid only on the cpecific device that you are currently using - laptop, desktop PC, or a mobile device. You can access the same wallet from another device by restoring it from you SEED phrase. So, if you lose the account name and password, nothing too bad will happen. However, if you lose your SEED phrase, your wallet will be gone/inaccessible forever. Welcome to self-sovereignty! :)
 
 ![](../.gitbook/assets/wallet-3.PNG)
 
@@ -26,7 +27,7 @@ Pay attention to the warning and read it carefully. Only after that, click **I u
 
 ![](../.gitbook/assets/wallet-5.PNG)
 
-Here comes the **SEED**. It's your one and only way to accessing and restoring your wallet. **DO NOT** share it with anyone else than official **0bsnetwork** **client**.The best and most secure way for you to save your **SEED** is to write it down on piece of paper and keep it somewhere secure. **DO NOT** store the backup phrase on any unencrypted electronic devices or you risk of getting your wallet and your funds compromised. 0bsnetwork client will ask you to confirm your backup phrase in next step. After you've written it down, click on **I've written it down** and proceed.  
+Here comes the **SEED**. It's your one and only way to accessing and restoring your wallet. **DO NOT** share it with anyone and only enter it in the appropriate field of the official **0bsnetwork** **client**.The best and most secure way for you to save your **SEED** is to write it down on a piece of paper, using a graphite pen or ink that you are confident will not fade over time, and keep it somewhere secure, like a safe, or even a bank vault. **DO NOT** store the backup phrase on any unencrypted electronic devices or you risk of getting your wallet and your funds compromised. 0bsnetwork client will ask you to confirm your backup phrase in next step. After you've written it down, click on **I've written it down** and proceed.  
 
 ![](../.gitbook/assets/wallet-6.PNG)
 
