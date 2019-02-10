@@ -1,2 +1,2 @@
-# 0bsnetwork Development Resources
+# Development Resources
 

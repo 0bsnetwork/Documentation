@@ -1,4 +1,4 @@
-# 0bsnetwork Platform Features
+# Platform Features
 
 **Instantaneous, Real-time Transactions**. Unlike on Bitcoin and Ethereum networks, you never have to wait for 20, 40 or 180 minutes for your transactions to be processed and confirmed by the network. 0bsnetwork can process hundreds of transactions per second. Bitcoin network can process 3-7 and Ethereum 15-22 transactions per second. If you have a business to run, you don't have the luxury of asking your customers to wait for an hour to make sure that a transaction has been cleared by the system. If you want to sell products or services using a blockchain, the transactions need to be approved up to a second after they've been sent. 0bsnetwork enables exactly that.
 

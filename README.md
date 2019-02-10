@@ -11,7 +11,7 @@ Structure of documentation is as follows:
 
 1. [What is 0bsnetwork?](what-is-0bsnetwork.md) 
 2. [0bsnetwork Platform Features](running-a-node.md)
-3. [0bsnetwork Components](0bsnetwork-components.md)
+3. [0bsnetwork Components](0bsnetwork-components/)
 4. [0bsnetwork Development Resources](0bsnetwork-development-resources/)
 5. [0bsnetwork User Guides](0bsnetwork-user-guides/)
 6. [Technical Details](technical-details/)
