@@ -65,9 +65,7 @@ object DataType {
 
 ## Fees
 
-Fee is proportional to transaction size. Minimal fee is 100,000 per kilobyte, rounded up.
-
-Fee is payable in ZBS or EUR.
+Fee is proportional to transaction size. Minimal fee is 0.03 ZBS/EUR per kilobyte, rounded up.
 
 ## API
 
