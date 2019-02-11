@@ -81,7 +81,7 @@ Fee is proportional to transaction size. Minimal fee is 0.03 ZBS/EUR per kilobyt
     {"key": "blob", "type": "binary", "value": "base64:BzWHaQU"}
     {"key": "My poem", "type": "string", "value": "Oh cryptocurrency world, why have you failed me so?!"}
   ],
-  "fee": 100000
+  "fee": 3000000
 }
 ```
 
