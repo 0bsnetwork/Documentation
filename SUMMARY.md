@@ -18,6 +18,7 @@
     * [Making a bootable USB Drive](0bsnetwork-user-guides/node-instalation/making-a-bootable-usb-drive.md)
     * [Installing Ubuntu Server](0bsnetwork-user-guides/node-instalation/installing-ubuntu-server.md)
     * [Installing the ZBS Node and prerequisites](0bsnetwork-user-guides/node-instalation/installing-the-zbs-node-and-prerequisites.md)
+  * [Export and Import the Blockchain to/from a Binary File](0bsnetwork-user-guides/export-and-import-from-the-blockchain.md)
 * [Technical Details](technical-details/README.md)
   * [Cryptographic Practical Details](technical-details/cryptographic-practical-details.md)
   * [Data Structures](technical-details/data-structures.md)
