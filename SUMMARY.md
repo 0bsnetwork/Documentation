@@ -13,6 +13,7 @@
   * [0bsnetwork Developer Chat](0bsnetwork-development-resources/0bsnetwork-developer-chat.md)
 * [User Guides](0bsnetwork-user-guides/README.md)
   * [Creating your wallet](0bsnetwork-user-guides/creating-your-wallet.md)
+  * [Account Security](0bsnetwork-user-guides/account-security.md)
   * [Node instalation](0bsnetwork-user-guides/node-instalation/README.md)
     * [Downloading Ubuntu Server ISO](0bsnetwork-user-guides/node-instalation/downloading-ubuntu-server-iso.md)
     * [Making a bootable USB Drive](0bsnetwork-user-guides/node-instalation/making-a-bootable-usb-drive.md)
